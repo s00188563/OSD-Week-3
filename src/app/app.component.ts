@@ -23,4 +23,13 @@ export class AppComponent implements OnInit {
       this.MyBooks = data;
     });
   }
+  addBook() {
+    return this.firebaseApiService
+      .addBook(this.titleValue, this.authorValue)
+      .subscribe((data: {}) => {
+        this.MyBooks = data;
+        this.titleValue = '';
+        this.authorValue = '';
+      });
+  }
 }

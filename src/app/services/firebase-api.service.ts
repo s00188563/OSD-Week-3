@@ -23,6 +23,14 @@ export class FirebaseApiService {
       .get<Book>(this.apiURL + '/getBooks')
       .pipe(retry(1), catchError(this.handleError));
   }
+  addBook(title: string, author: string): Observable<Book> {
+    return this.http
+      .post<Book>(
+        this.apiURL + '/addBook?title=' + title + '&author=' + author,
+        null
+      )
+      .pipe(retry(1), catchError(this.handleError));
+  }
 
   handleError(error) {
     let errorMessage = '';
