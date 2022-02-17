@@ -1,8 +1,9 @@
-<h1>My Serverless Book Functions</h1>
+<h1>LuigiFernandez-S00188563's Serverless Book Functions</h1>
 <div>
   <ul>
     <li *ngFor="let book of MyBooks">
       {{ book.id }} - {{ book.title }} - {{ book.author }}
+      <button class="btn" (click)="deleteBook(book.id)">Delete Book</button>
     </li>
   </ul>
 </div>

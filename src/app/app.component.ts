@@ -32,4 +32,9 @@ export class AppComponent implements OnInit {
         this.authorValue = '';
       });
   }
+  deleteBook(id: string) {
+    return this.firebaseApiService.deleteBook(id).subscribe((data: {}) => {
+      this.MyBooks = data;
+    });
+  }
 }

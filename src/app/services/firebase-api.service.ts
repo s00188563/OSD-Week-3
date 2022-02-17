@@ -31,6 +31,11 @@ export class FirebaseApiService {
       )
       .pipe(retry(1), catchError(this.handleError));
   }
+  deleteBook(id: string): Observable<Book> {
+    return this.http
+      .delete<Book>(this.apiURL + '/deleteBook?id=' + id)
+      .pipe(retry(1), catchError(this.handleError));
+  }
 
   handleError(error) {
     let errorMessage = '';
